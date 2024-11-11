@@ -61,3 +61,26 @@ const Game = (() => {
 
     return { addPlayers, playTurn, resetGame };
 })();
+
+const DisplayController = (() => {
+    const boardCells = document.querySelectorAll('.board-cell');
+
+    const renderBoard = () => {
+        Gameboard.getBoard().forEach((mark, index) => {
+            boardCells[index].textContent = mark;
+        });
+    };
+
+    const setupEventListener = () => {
+        boardCells.forEach((cell, index) => {
+            cell.addEventListener('click', () => {
+                Game.playTurn(index);
+                renderBoard();
+            });
+        });
+    };
+
+    return { renderBoard, setupEventListener};
+})();
+
+DisplayController.setupEventListener();
