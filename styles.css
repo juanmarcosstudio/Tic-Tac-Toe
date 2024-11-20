@@ -87,3 +87,12 @@ button:hover {
 .board-cell.O {
     color: #4d79ff;
 }
+
+.scoreboard {
+    display: flex;
+    gap: 20px;
+    margin: 10px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007acc;
+}
